@@ -23,6 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "dev": "parcel public/index.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier \"src/**/*.{js,html}\" --write",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
+    "parcel-bundler": "^1.12.5",
     "prettier": "^2.2.1"
   }
 }
