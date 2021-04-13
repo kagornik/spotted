@@ -1,11 +1,14 @@
 {
   "extends": [
     "eslint:recommended",
-    "prettier",
+    "plugin:import/errors",
+    "plugin:react/recommended",
+    "plugin:js-a11y/recommneded",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["react", "import", "jsx-a11y", "@typescript-eslint"],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -18,5 +21,10 @@
     "es6": true,
     "browser": true,
     "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
