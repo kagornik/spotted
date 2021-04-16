@@ -1,9 +1,13 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import counterReducer from "../features/counter/counterSlice";
+import authorizationReducer from "../features//counter/authorization/authorizationSlice";
+import spotifyExampleReducer from "../features/spotifyExample/spotifyEampleSlice";
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    authorization: authorizationReducer,
+    spotifyExample: spotifyExampleReducer,
   },
 });
 
