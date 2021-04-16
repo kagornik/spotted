@@ -1,17 +1,18 @@
 import React from "react";
 import logo from "./logo.svg";
+import spotify from "./spotify_large.png";
 import { Counter } from "./features/counter/Counter";
+import { SpotifyExample } from "./features/spotifyExample/SpotifyExample";
+import { Authorization } from "./features/counter/authorization/Authorization";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <img src={spotify} className="App-logo" alt="logo" />
+        <Authorization />
+        <SpotifyExample />
         <span>
           <span>Learn </span>
           <a
