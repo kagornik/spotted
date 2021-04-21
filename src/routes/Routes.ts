@@ -1,4 +1,4 @@
 export const PATH_ROUTES = {
-  DASHBOARD: "/dashboard",
   EMPTY: "/",
+  MAIN_PAGE: "/main",
 };

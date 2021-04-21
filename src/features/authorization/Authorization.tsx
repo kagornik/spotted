@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setLoggedIn,
@@ -10,14 +10,15 @@ import {
 import { setUserProfileAsync } from "../spotifyExample/spotifyEampleSlice";
 import { getAuthorizeHref } from "./oauthConfig";
 import { getHashParams, removeHashParamsFromUrl } from "../../utils/hashUtils";
-import styles from "../counter/Counter.module.css";
+import { AuthorizationButton } from "../../components/Button";
+import * as styles from "../../styles/AuthorizationStyles";
 
 const hashParams = getHashParams();
 const access_token = hashParams.access_token;
 const expires_in = hashParams.expires_in;
 removeHashParamsFromUrl();
 
-const Authorization: FC = () => {
+const Authorization: React.FC = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const tokenExpiryDate = useSelector(selectTokenExpiryDate);
@@ -32,19 +33,19 @@ const Authorization: FC = () => {
   }, []);
 
   return (
-    <div>
-      <div className={styles.row}>
+    <div style={styles.body}>
+      <div style={styles.row}>
         {!isLoggedIn && (
-          <button
-            className={styles.button}
-            aria-label="Log in using OAuth 2.0"
+          <AuthorizationButton
+            variant="contained"
+            color="primary"
             onClick={() => window.open(getAuthorizeHref(), "_self")}
           >
-            Log in with Spotify
-          </button>
+            Log in to Spotify
+          </AuthorizationButton>
         )}
         {isLoggedIn && (
-          <div className={styles.row}>Token expiry date: {tokenExpiryDate}</div>
+          <div style={styles.token}>Token expiry date: {tokenExpiryDate}</div>
         )}
       </div>
     </div>
