@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setLoggedIn,
@@ -8,19 +8,19 @@ import {
   selectTokenExpiryDate,
 } from "./authorizationSlice";
 import { setUserProfileAsync } from "../spotifyExample/spotifyEampleSlice";
-import styles from "../counter/Counter.module.css";
-import { getAuthorizeHref } from "../../oauthConfig";
+import { getAuthorizeHref } from "./oauthConfig";
 import { getHashParams, removeHashParamsFromUrl } from "../../utils/hashUtils";
+import styles from "../counter/Counter.module.css";
 
 const hashParams = getHashParams();
 const access_token = hashParams.access_token;
 const expires_in = hashParams.expires_in;
 removeHashParamsFromUrl();
 
-export function Authorization() {
+const Authorization: FC = () => {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const tokenExpiryDate = useSelector(selectTokenExpiryDate);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (access_token) {
@@ -49,4 +49,6 @@ export function Authorization() {
       </div>
     </div>
   );
-}
+};
+
+export default Authorization;
