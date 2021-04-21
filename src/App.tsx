@@ -1,16 +1,14 @@
 import React from "react";
-import logo from "./logo.svg";
-import spotify from "./spotify_large.png";
-import { Counter } from "./features/counter/Counter";
+import spotifyLogo from "./assets/spotify_large_logo.png";
 import { SpotifyExample } from "./features/spotifyExample/SpotifyExample";
-import { Authorization } from "./features/counter/authorization/Authorization";
+import { Authorization } from "./features/authorization/Authorization";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={spotify} className="App-logo" alt="logo" />
+        <img src={spotifyLogo} className="App-logo" alt="logo" />
         <Authorization />
         <SpotifyExample />
         <span>

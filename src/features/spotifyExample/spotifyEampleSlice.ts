@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk, RootState } from "../../app/store";
-import { setLoggedIn } from "../counter/authorization/authorizationSlice";
+import { setLoggedIn } from "../authorization/authorizationSlice";
 
 interface SpotifyExampleState {
   displayName: string;

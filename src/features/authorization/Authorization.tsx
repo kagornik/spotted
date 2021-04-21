@@ -7,13 +7,10 @@ import {
   selectIsLoggedIn,
   selectTokenExpiryDate,
 } from "./authorizationSlice";
-import { setUserProfileAsync } from "../../spotifyExample/spotifyEampleSlice";
-import styles from "../Counter.module.css";
-import { getAuthorizeHref } from "../../../oauthConfig";
-import {
-  getHashParams,
-  removeHashParamsFromUrl,
-} from "../../../utils/hashUtils";
+import { setUserProfileAsync } from "../spotifyExample/spotifyEampleSlice";
+import styles from "../counter/Counter.module.css";
+import { getAuthorizeHref } from "../../oauthConfig";
+import { getHashParams, removeHashParamsFromUrl } from "../../utils/hashUtils";
 
 const hashParams = getHashParams();
 const access_token = hashParams.access_token;
