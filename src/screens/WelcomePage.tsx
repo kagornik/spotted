@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import spotifyLogo from "../assets/spotify_large_logo.png";
-import SpotifyExample from "../features/spotifyExample/SpotifyExample";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import Authorization from "../features/authorization/Authorization";
+import { selectIsLoggedIn } from "../features/authorization/authorizationSlice";
+import { PATH_ROUTES } from "../routes/Routes";
 import "../styles/WelcomePage.css";
 
-const WelcomePage: React.FC = () => {
+type WelcomePageProps = RouteComponentProps;
+
+const WelcomePage: React.FC<WelcomePageProps> = ({ history }) => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      history.push(PATH_ROUTES.MAIN_PAGE);
+    }
+  }, [isLoggedIn]);
+
   return (
     <div className="Welcome-container">
       <header className="Welcome-header">
@@ -15,11 +28,10 @@ const WelcomePage: React.FC = () => {
           </h3>
           <img src={spotifyLogo} className="Welcome-logo" alt="logo" />
           <Authorization />
-          <SpotifyExample />
         </div>
       </header>
     </div>
   );
 };
 
-export default WelcomePage;
+export default withRouter(WelcomePage);

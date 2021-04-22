@@ -80,7 +80,7 @@ h3 {
 
 @keyframes welcome-move-description {
   0% {
-    bottom: 1em;
+    bottom: 0;
     opacity: 0;
     color: #2e8b57;
   }

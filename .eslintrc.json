@@ -10,7 +10,8 @@
   "rules": {
     "react-hooks/rules-of-hooks": 2,
     "react-hooks/exhaustive-deps": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "react/prop-types": 1
   },
   "plugins": ["react", "import", "react-hooks", "@typescript-eslint"],
   "parserOptions": {

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { withRouter } from "react-router-dom";
 import {
   setLoggedIn,
   setAccessToken,
@@ -23,6 +24,10 @@ const Authorization: React.FC = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const tokenExpiryDate = useSelector(selectTokenExpiryDate);
 
+  const handleAuthorizationButton = () => {
+    window.open(getAuthorizeHref(), "_self");
+  };
+
   useEffect(() => {
     if (access_token) {
       dispatch(setLoggedIn(true));
@@ -35,11 +40,11 @@ const Authorization: React.FC = () => {
   return (
     <div style={styles.body}>
       <div style={styles.row}>
-        {!isLoggedIn && (
+        {!access_token && (
           <AuthorizationButton
             variant="contained"
             color="primary"
-            onClick={() => window.open(getAuthorizeHref(), "_self")}
+            onClick={handleAuthorizationButton}
           >
             Log in to Spotify
           </AuthorizationButton>
@@ -52,4 +57,4 @@ const Authorization: React.FC = () => {
   );
 };
 
-export default Authorization;
+export default withRouter(Authorization);
