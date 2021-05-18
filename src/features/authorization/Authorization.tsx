@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   setLoggedIn,
   setAccessToken,
   setTokenExpiryDate,
-  selectIsLoggedIn,
-  selectTokenExpiryDate,
 } from "./authorizationSlice";
 import { setUserProfileAsync } from "../spotifyExample/spotifyEampleSlice";
 import { getAuthorizeHref } from "./oauthConfig";
@@ -21,8 +18,6 @@ removeHashParamsFromUrl();
 
 const Authorization: React.FC = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const tokenExpiryDate = useSelector(selectTokenExpiryDate);
 
   const handleAuthorizationButton = () => {
     window.open(getAuthorizeHref(), "_self");
@@ -49,12 +44,9 @@ const Authorization: React.FC = () => {
             Log in to Spotify
           </AuthorizationButton>
         )}
-        {isLoggedIn && (
-          <div style={styles.token}>Token expiry date: {tokenExpiryDate}</div>
-        )}
       </div>
     </div>
   );
 };
 
-export default withRouter(Authorization);
+export default Authorization;
