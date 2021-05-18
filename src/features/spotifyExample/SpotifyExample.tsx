@@ -8,8 +8,16 @@ const SpotifyExample: React.FC = () => {
 
   return (
     <div style={{ color: "white" }}>
-      {displayName && <div>Logged in as: {displayName}</div>}
-      {product && <div>Subscription type: {product}</div>}
+      {displayName && (
+        <div style={{ marginTop: "20px" }}>
+          You are currently logged in as {displayName}
+        </div>
+      )}
+      {product && (
+        <div style={{ marginTop: "10px" }}>
+          Your subscription type is {product}
+        </div>
+      )}
     </div>
   );
 };

@@ -13,7 +13,7 @@ const MainPage: React.FC = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <span style={{ color: "white", fontSize: "50px" }}>
-        Hello, it's MainPage here :)
+        Now you can enjoy all the features of Spotted
       </span>
       <SpotifyExample />
       {isLoggedIn && (
