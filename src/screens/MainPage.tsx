@@ -1,28 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import SpotifyExample from "../features/spotifyExample/SpotifyExample";
-import {
-  selectIsLoggedIn,
-  selectTokenExpiryDate,
-} from "../features/authorization/authorizationSlice";
+import UserInfo from "../features/spotifyExample/UserInfo";
+import { ContainerStyle, SpanStyle } from "../styles/MainPageStyles";
 
 const MainPage: React.FC = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const tokenExpiryDate = useSelector(selectTokenExpiryDate);
-
   return (
-    <div style={{ textAlign: "center" }}>
-      <span style={{ color: "white", fontSize: "50px" }}>
-        Now you can enjoy all the features of Spotted
+    <div style={ContainerStyle}>
+      <span style={SpanStyle}>
+        Now you can enjoy all the features of Spotted!
       </span>
-      <SpotifyExample />
-      {isLoggedIn && (
-        <div style={{ color: "white", fontSize: "50px" }}>
-          Token expiry date: {tokenExpiryDate}
-        </div>
-      )}
+      <UserInfo />
     </div>
   );
+  ``;
 };
 
 export default MainPage;
