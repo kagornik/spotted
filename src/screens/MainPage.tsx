@@ -1,6 +1,6 @@
 import React from "react";
 import UserInfo from "../features/spotifyExample/UserInfo";
-import FeatureCard from "../components/FeatureCard";
+import CarouselComponent from "../components/carousel/Carousel";
 import { ContainerStyle, SpanStyle, HintStyle } from "../styles/MainPageStyles";
 
 const MainPage: React.FC = () => {
@@ -13,10 +13,8 @@ const MainPage: React.FC = () => {
         <UserInfo />
         <div style={HintStyle}>Please select one of the options below</div>
       </div>
-      <div style={{ display: "flex" }}>
-        <FeatureCard />
-        <FeatureCard />
-        <FeatureCard />
+      <div>
+        <CarouselComponent />
       </div>
     </>
   );
