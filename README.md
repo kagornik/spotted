@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is a project using the Spotify Api.
 
+This project is still in progress.
+
 ## The following technologies were used to create this project
 
 - React<br />
